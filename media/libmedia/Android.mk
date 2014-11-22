@@ -74,29 +74,7 @@ LOCAL_SRC_FILES:= \
 
 LOCAL_SRC_FILES += ../libnbaio/roundup.c
 
-ifeq ($(BOARD_USES_QCOM_HARDWARE),true)
-ifneq ($(filter msm7x30 msm8660 msm8960,$(TARGET_BOARD_PLATFORM)),)
-ifeq ($(BOARD_USES_LEGACY_ALSA_AUDIO),true)
-LOCAL_SRC_FILES += \
-    IDirectTrack.cpp \
-    IDirectTrackClient.cpp
-endif
-endif
-endif
-
-#QTI Resampler
-ifeq ($(call is-vendor-board-platform,QCOM),true)
-ifeq ($(strip $(AUDIO_FEATURE_ENABLED_EXTN_RESAMPLER)),true)
-LOCAL_CFLAGS += -DQTI_RESAMPLER
-endif
-endif
-#QTI Resampler
-
-ifeq ($(TARGET_ENABLE_QC_AV_ENHANCEMENTS),true)
-    LOCAL_CFLAGS += -DENABLE_AV_ENHANCEMENTS
-    LOCAL_C_INCLUDES += $(TOP)/frameworks/av/include/media
-    LOCAL_C_INCLUDES += $(TOP)/$(call project-path-for,qcom-media)/mm-core/inc
-endif
+LOCAL_CPPFLAGS += -fno-strict-aliasing
 
 LOCAL_SHARED_LIBRARIES := \
 	libui liblog libcutils libutils libbinder libsonivox libicuuc libicui18n libexpat \
