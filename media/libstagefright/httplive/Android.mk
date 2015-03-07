@@ -13,7 +13,7 @@ LOCAL_C_INCLUDES:= \
 	$(TOP)/frameworks/native/include/media/openmax \
 	$(TOP)/external/openssl/include
 
-LOCAL_CFLAGS += -Werror
+LOCAL_CFLAGS += -Werror -fno-strict-aliasing
 
 LOCAL_SHARED_LIBRARIES := \
         libbinder \
@@ -27,7 +27,7 @@ LOCAL_SHARED_LIBRARIES := \
 LOCAL_MODULE:= libstagefright_httplive
 
 ifeq ($(TARGET_ARCH),arm)
-    LOCAL_CFLAGS += -Wno-psabi
+    LOCAL_CFLAGS += -Wno-psabi -fno-strict-aliasing
 endif
 
 include $(BUILD_SHARED_LIBRARY)

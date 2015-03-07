@@ -30,7 +30,7 @@ LOCAL_C_INCLUDES := \
 LOCAL_CFLAGS := \
     -DOSCL_IMPORT_REF= -DOSCL_UNUSED_ARG= -DOSCL_EXPORT_REF=
 
-LOCAL_CFLAGS += -Werror
+LOCAL_CFLAGS += -Werror -fno-strict-aliasing
 
 include $(BUILD_STATIC_LIBRARY)
 
@@ -71,6 +71,6 @@ LOCAL_SHARED_LIBRARIES := \
 LOCAL_MODULE := libstagefright_soft_h264enc
 LOCAL_MODULE_TAGS := optional
 
-LOCAL_CFLAGS += -Werror
+LOCAL_CFLAGS += -Werror -fno-strict-aliasing
 
 include $(BUILD_SHARED_LIBRARY)

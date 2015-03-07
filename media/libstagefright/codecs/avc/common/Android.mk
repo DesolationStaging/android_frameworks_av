@@ -16,6 +16,6 @@ LOCAL_C_INCLUDES := \
 	$(LOCAL_PATH)/src \
  	$(LOCAL_PATH)/include
 
-LOCAL_CFLAGS += -Werror
+LOCAL_CFLAGS += -Werror -fno-strict-aliasing
 
 include $(BUILD_SHARED_LIBRARY)

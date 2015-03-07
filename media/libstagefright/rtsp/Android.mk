@@ -27,7 +27,7 @@ LOCAL_C_INCLUDES:= \
 LOCAL_MODULE:= libstagefright_rtsp
 
 ifeq ($(TARGET_ARCH),arm)
-    LOCAL_CFLAGS += -Wno-psabi
+    LOCAL_CFLAGS += -Wno-psabi -fno-strict-aliasing
 endif
 
 LOCAL_CFLAGS += -Werror
@@ -53,7 +53,7 @@ LOCAL_C_INCLUDES:= \
 	frameworks/av/media/libstagefright \
 	$(TOP)/frameworks/native/include/media/openmax
 
-LOCAL_CFLAGS += -Wno-multichar
+LOCAL_CFLAGS += -Wno-multichar -fno-strict-aliasing
 
 LOCAL_MODULE_TAGS := optional
 
